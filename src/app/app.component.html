@@ -9,117 +9,134 @@
         <span>PT</span>
     </div>
 </div>
-<section class="header">
-    <div class="header__photo">
-        <img src="../assets/img/profile.jpg"/>
-    </div>
-    <div class="header__info">
-        <div class="header__info__about">
-            <h1>
-                Edu Caribé
-            </h1>
-            <h2>
-                Full-Stack Developer
-            </h2>
-            <p>
-                "Uma grande frase motivacional"
-            </p>
+<main>
+    <section class="header">
+        <div class="header__photo">
+            <img src="../assets/img/profile.jpg"/>
         </div>
-        <section class="header__info__connections">
-            <a
-                target="__blank"
-                href="https://github.com/caribeedu"
-                class="header__info__connections__item">
-                <img src="../assets/img/github.png" />
-                <label>GitHub</label>
-            </a>
-            <a
-                target="__blank"
-                href="https://www.linkedin.com/in/caribeedu/"
-                class="header__info__connections__item">
-                <img src="../assets/img/linkedin.png" />
-                <label>LinkedIn</label>
-            </a>
-            <a
-                target="__blank"
-                href="https://www.hackerrank.com/caribeedu"
-                class="header__info__connections__item">
-                <img src="../assets/img/hackerrank.png" />
-                <label>HackerRank</label>
-            </a>
-            <a
-                href="mailto:contacto@caribeedu.me"
-                class="header__info__connections__item header__info__connections__item--status">
-                <label>Entrar em contato</label>
-            </a>
+        <div class="header__info">
+            <div class="header__info__about">
+                <h1>
+                    Edu Caribé
+                </h1>
+                <h2>
+                    Full-Stack Developer
+                </h2>
+                <p>
+                    "Uma grande frase motivacional"
+                </p>
+            </div>
+            <section class="header__info__connections">
+                <a
+                    target="__blank"
+                    href="https://github.com/caribeedu"
+                    class="header__info__connections__item">
+                    <img src="../assets/img/github.png" />
+                    <label>GitHub</label>
+                </a>
+                <a
+                    target="__blank"
+                    href="https://www.linkedin.com/in/caribeedu/"
+                    class="header__info__connections__item">
+                    <img src="../assets/img/linkedin.png" />
+                    <label>LinkedIn</label>
+                </a>
+                <a
+                    target="__blank"
+                    href="https://www.hackerrank.com/caribeedu"
+                    class="header__info__connections__item">
+                    <img src="../assets/img/hackerrank.png" />
+                    <label>HackerRank</label>
+                </a>
+                <a
+                    href="mailto:contacto@caribeedu.me"
+                    class="header__info__connections__item header__info__connections__item--status">
+                    <label>Entrar em contato</label>
+                </a>
+            </section>
+        </div>
+    </section>
+    <section class="description">
+        <h3 class="description__title">
+            Sobre Mim
+        </h3>
+        <p class="description__text">
+            Sou um desenvolvedor de software com 4 anos de experiência no desenvolvimento de aplicativos web e móveis em uma variedade de tech stacks. Minhas habilidades mais fortes são Node.js e C#, e sou um AWS Certified Cloud Practioner com mais de 2 anos de experiência em lidar com provedores de serviços de nuvem como AWS e GCP. Tenho experiências de implementação de DevOps e CI/CD também.
+            Hábil experiência em projetar soluções de sistema para escalonamento rápido e fácil manutenção.
+            Flexível com as tecnologias e consigo aprender rapidamente quando necessário.
+        </p>
+    </section>
+    <div class="experiences">
+        <section class="experiences__work">
+            <label class="experiences__work__title">
+                Experiências
+            </label>
+            <div class="experiences__work__item">
+                <div class="experiences__work__item__header">
+                    <h4>Helpper - Soluções Inteligentes</h4>
+                    <span>Dezembro de 2018 a Novembro de 2019</span>
+                </div>
+                <label class="experiences__work__item__field">
+                    Desenvolvedor Full-Stack
+                </label>
+                <p class="experiences__work__item__description">
+                    Em busca de novos desafios cheguei ao Helpper, onde trabalhei como desenvolvedor full-stack com Node.js.
+
+                    <br/>• Trabalhei em conjunto com a equipe de desenvolvimento multidisciplinar, dando insights técnicos sobre os projetos de outros
+                    <br/>• Trabalhei com o proprietário do projeto e equipes de design em busca de melhorias de recursos e design de soluções
+                    <br/>• Atualizei minhas habilidades com a stack Node.js e técnicas Scrum
+                    <br/>• Apliquei metodologias/tecnologias de teste de unidade e integração nos projetos em que trabalhei
+                </p>
+            </div>
+        </section>
+        <section class="experiences__skills">
+            <label class="experiences__skills__title">
+                Habilidades
+            </label>
+            <button
+                title="Ajuda"
+                class="experiences__skills__help"
+                [ngClass]="{'experiences__skills__help--active': expHelpActive}"
+                (click)="changeHelpState()">
+                ?
+            </button>
+            <div
+                class="experiences__skills__help-text"
+                [ngClass]="{'experiences__skills__help-text--active': expHelpActive}">
+                Profissional - Trabalhei com esta tecnologia diariamente
+                <br/>Experiente - Utilizei esta tecnologia regularmente
+                <br/>Avançado - Utilizei esta tecnologia em alguns projetos
+                <br/>Conhecido - Me envolvi poucas vezes, tenho a base
+            </div>
+            <div class="experiences__skills__category">
+                <label class="experiences__skills__category__title">Linguagens</label>
+                <div class="experiences__skills__item">
+                    <div class="experiences__skills__item__title">
+                        Typescript
+                    </div>
+                    <div class="experiences__skills__item__rate">
+                        <div class="experiences__skills__item__rate__tag">
+                            Profissional
+                        </div>
+                        <div class="experiences__skills__item__rate__tag">
+                            +4 anos exp.
+                        </div>
+                    </div>
+                </div>
+                <div class="experiences__skills__item">
+                    <div class="experiences__skills__item__title">
+                        C#
+                    </div>
+                    <div class="experiences__skills__item__rate">
+                        <div class="experiences__skills__item__rate__tag">
+                            Experiente
+                        </div>
+                        <div class="experiences__skills__item__rate__tag">
+                            +3 anos exp.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
-</section>
-<section class="description">
-    <h3 class="description__title">
-        Sobre Mim
-    </h3>
-    <p class="description__text">
-        Sou um desenvolvedor de software com 4 anos de experiência no desenvolvimento de aplicativos web e móveis em uma variedade de tech stacks. Minhas habilidades mais fortes são Node.js e C#, e sou um AWS Certified Cloud Practioner com mais de 2 anos de experiência em lidar com provedores de serviços de nuvem como AWS e GCP. Tenho experiências de implementação de DevOps e CI/CD também.
-        Hábil experiência em projetar soluções de sistema para escalonamento rápido e fácil manutenção.
-        Flexível com as tecnologias e consigo aprender rapidamente quando necessário.
-    </p>
-</section>
-<div class="experiences">
-    <section class="experiences__work">
-        <label class="experiences__work__title">
-            Experiências
-        </label>
-        <div class="experiences__work__item">
-            <div class="experiences__work__item__header">
-                <h4>Helpper - Soluções Inteligentes</h4>
-                <span>December 2018 to November 2019</span>
-            </div>
-            <label class="experiences__work__item__field">
-                Desenvolvedor Full-Stack
-            </label>
-            <p class="experiences__work__item__description">
-                Em busca de novos desafios cheguei ao Helpper, onde trabalhei como desenvolvedor full-stack com Node.js.
-
-                <br/>• Trabalhei em conjunto com a equipe de desenvolvimento multidisciplinar, dando insights técnicos sobre os projetos de outros
-                <br/>• Trabalhei com o proprietário do projeto e equipes de design em busca de melhorias de recursos e design de soluções
-                <br/>• Atualizei minhas habilidades com a stack Node.js e técnicas Scrum
-                <br/>• Apliquei metodologias/tecnologias de teste de unidade e integração nos projetos em que trabalhei
-            </p>
-        </div>
-    </section>
-    <section class="experiences__skills">
-        <label class="experiences__skills__title">
-            Habilidades
-        </label>
-        <div class="experiences__skills__category">
-            <label class="experiences__skills__category__title">Linguagens</label>
-            <div class="experiences__skills__item">
-                <div class="experiences__skills__item__title">
-                    Typescript
-                </div>
-                <div class="experiences__skills__item__rate">
-                    <div class="experiences__skills__item__rate__tag">
-                        Profissional
-                    </div>
-                    <div class="experiences__skills__item__rate__tag">
-                        +4 anos exp.
-                    </div>
-                </div>
-            </div>
-            <div class="experiences__skills__item">
-                <div class="experiences__skills__item__title">
-                    C#
-                </div>
-                <div class="experiences__skills__item__rate">
-                    <div class="experiences__skills__item__rate__tag">
-                        Experiente
-                    </div>
-                    <div class="experiences__skills__item__rate__tag">
-                        +3 anos exp.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+</main>
