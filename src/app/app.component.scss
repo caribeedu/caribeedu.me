@@ -1,0 +1,250 @@
+.language-selector {
+    justify-content: end;
+    display: flex;
+    margin-top: 24px;
+    margin-right: 24px;
+    height: 24px;
+
+    &__option {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        & > img {
+            width: 24px;
+            height: 24px;
+        }
+
+        & > span {
+            margin-left: 6px;
+            font-size: 12pt;
+        }
+
+        &--selected {
+            & > span {
+                font-weight: 500;
+            }
+        }
+    }
+
+    &__separator {
+        width: 28px;
+        text-align: center;
+        font-size: 12pt;
+
+        &::before {
+            content: '/';
+        }
+    }
+}
+
+.header {
+    display: flex;
+    height: 192px;
+
+    &__photo {
+        width: 30%;
+        text-align: center;
+
+        & > img {
+            border-radius: 100%;
+            width: 192px;
+            height: 192px;
+        }
+    }
+
+    &__info {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 48px;
+
+        &__about {
+            cursor: default;
+
+            & > h1 {
+                font-weight: 700;
+                font-size: 30pt;
+                margin: 0;
+            }
+
+            & > h2 {
+                margin: 0;
+                font-size: 20pt;
+                font-weight: 500;
+                color: #ff5200;
+            }
+
+            & > p {
+                margin: 6px 0 0;
+                font-size: 16pt;
+                font-style: italic;
+                color: #8f8f8f;
+            }
+        }
+
+        &__connections {
+            width: 200px;
+            margin-right: 24px;
+            text-align: end;
+            justify-content: end;
+            justify-items: end;
+
+            &__item {
+                justify-content: end;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 36px;
+                cursor: pointer;
+
+                & > img {
+                    width: 26px;
+                    height: 26px;
+                }
+
+                & > label {
+                    margin-left: 6px;
+                    font-size: 11pt;
+                    font-weight: 500;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+
+                &--status {
+                    & > label {
+                        color: #ff5200;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.description {
+    padding: 18px 0;
+    margin: 18px 24px;
+    border-top: 1px solid #d9d9d9;
+
+    &__title {
+        font-weight: 700;
+        font-size: 18pt;
+        margin: 0 0 12px;
+    }
+
+    &__text {
+        font-size: 12pt;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+}
+
+.experiences {
+    display: flex;
+    padding: 36px 0;
+    margin: 0 24px;
+    border-top: 1px solid #d9d9d9;
+
+    &__work {
+        border-right: 1px solid #d9d9d9;
+        width: calc(70% - 36px);
+        margin-right: 36px;
+        padding-right: 36px;
+
+        &__title {
+            font-weight: 700;
+            font-size: 18pt;
+        }
+
+        &__item {
+            margin: 12px 0;
+
+            &__header {
+                display: flex;
+                justify-content: space-between;
+                height: 36px;
+
+                & > h4 {
+                    margin: 0;
+                    font-size: 14pt;
+                    font-weight: 600;
+                    cursor: default;
+                    line-height: 36px;
+                }
+
+                & > span {
+                    margin: 0;
+                    font-size: 12pt;
+                    font-weight: 500;
+                    cursor: default;
+                    color: #8f8f8f;
+                    line-height: 36px;
+                    font-style: italic;
+                }
+            }
+
+            &__field {
+                font-size: 13pt;
+                font-weight: 600;
+                cursor: default;
+                line-height: 28px;
+                color: #ff5200;
+            }
+
+            &__description {
+                font-size: 12pt;
+                margin: 8px 0 0;
+                cursor: default;
+            }
+        }
+    }
+
+    &__skills {
+        width: 30%;
+
+        &__title {
+            font-weight: 700;
+            font-size: 18pt;
+        }
+
+        &__category {
+            margin: 10px 0;
+
+            &__title {
+                font-size: 14pt;
+                line-height: 36px;
+                font-weight: 500;
+                color: #8f8f8f;
+            }
+        }
+
+        &__item {
+            margin: 8px 0;
+
+            &__title {
+                margin: 8px 0;
+                font-size: 12pt;
+                color: #ff5200;
+                font-weight: 600;
+                cursor: default;
+            }
+
+            &__rate {
+                display: flex;
+                justify-content: start;
+
+                &__tag {
+                    cursor: default;
+                    padding: 8px 12px;
+                    border-radius: 18px;
+                    background-color: #ff8a53;
+                    font-weight: 500;
+                    color: #fff;
+                    font-size: 10pt;
+                    margin: 0 4px;
+                }
+            }
+        }
+    }
+}
