@@ -1,10 +1,10 @@
 <language-selector></language-selector>
 <main>
     <section class="header">
-        <div class="header__photo">
-            <img [src]="data.photo"/>
-        </div>
         <div class="header__info">
+            <div class="header__info__photo">
+                <img [src]="data.photo"/>
+            </div>
             <div class="header__info__about">
                 <h1>
                     {{ data.name }}
@@ -16,35 +16,35 @@
                     {{ data.phrase }}
                 </p>
             </div>
-            <section class="header__info__connections">
-                <a
-                    target="__blank"
-                    [href]="data.links.github"
-                    class="header__info__connections__item">
-                    <img src="../assets/img/github.png" />
-                    <label>GitHub</label>
-                </a>
-                <a
-                    target="__blank"
-                    [href]="data.links.linkedin"
-                    class="header__info__connections__item">
-                    <img src="../assets/img/linkedin.png" />
-                    <label>LinkedIn</label>
-                </a>
-                <a
-                    target="__blank"
-                    [href]="data.links.hackerrank"
-                    class="header__info__connections__item">
-                    <img src="../assets/img/hackerrank.png" />
-                    <label>HackerRank</label>
-                </a>
-                <a
-                    [href]="data.links.contact"
-                    class="header__info__connections__item header__info__connections__item--contact">
-                    <label>Entrar em contato</label>
-                </a>
-            </section>
         </div>
+        <section class="header__connections">
+            <a
+                target="__blank"
+                [href]="data.links.github"
+                class="header__connections__item">
+                <img src="../assets/img/github.png" />
+                <label>GitHub</label>
+            </a>
+            <a
+                target="__blank"
+                [href]="data.links.linkedin"
+                class="header__connections__item">
+                <img src="../assets/img/linkedin.png" />
+                <label>LinkedIn</label>
+            </a>
+            <a
+                target="__blank"
+                [href]="data.links.hackerrank"
+                class="header__connections__item">
+                <img src="../assets/img/hackerrank.png" />
+                <label>HackerRank</label>
+            </a>
+            <a
+                [href]="data.links.contact"
+                class="header__connections__item header__connections__item--contact">
+                <label>Entrar em contato</label>
+            </a>
+        </section>
     </section>
     <section class="description">
         <h3 class="description__title">

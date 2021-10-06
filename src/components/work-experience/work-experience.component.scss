@@ -67,3 +67,12 @@
         margin-top: 12px;
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .work-experience {
+        &__header {
+            display: block;
+            height: unset;
+        }
+    }
+}
