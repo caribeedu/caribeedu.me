@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { LanguageSelectorComponent, SkillCategoryComponent, WorkExperienceComponent } from 'src/components';
+import { LanguageSelectorComponent, SkillCategoryComponent, WorkExperienceComponent, WorkProjectComponent } from 'src/components';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +10,8 @@ import { AppComponent } from './app.component';
     AppComponent,
     LanguageSelectorComponent,
     SkillCategoryComponent,
-    WorkExperienceComponent
+    WorkExperienceComponent,
+    WorkProjectComponent
   ],
   imports: [
     BrowserModule,

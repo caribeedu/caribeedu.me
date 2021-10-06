@@ -1,0 +1,27 @@
+<section
+    class="work-project"
+    [ngClass]="{'work-project--active': open}">
+    <div class="work-project__header">
+        <button (click)="toggleState()">
+            {{ open ? '-' : '+' }}
+        </button>
+        <label>Genesis</label>
+    </div>
+    <div class="work-project__body">
+        <p class="work-project__body__description">
+            Project A is an online shop for restaurants delivery, in there I worked on performance optimization, structure improvements, and feature development.
+            In this project I:
+            <br/>• Improved infrastructure of web app using Angular best-practices and Typescript
+            <br/>• Refactored a Node.js/Express.js microservice targeting reduce memory usage in Google Cloud function
+            <br/>• Applied CI/CD pipelines with Bitbucket pipelines
+            <br/>• Created integration tests for Node.js microservices using Jest
+        </p>
+        <span class="work-project__body__period">
+            Fevereiro de 2021 a Agosto de 2021
+        </span>
+        <label class="work-project__body__techs">
+            Google Cloud Platform • Node.js • Bitbucket • JWT • Firebase • Angular • Express.js • DevOps
+        </label>
+    </div>
+    <p class="work-project__description">An online shop for restaurants delivery, in there I worked on performance optimization, structure improvements, and feature development.</p>
+</section>
