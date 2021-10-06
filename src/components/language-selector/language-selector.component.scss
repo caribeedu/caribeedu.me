@@ -1,0 +1,38 @@
+.language-selector {
+    justify-content: flex-end;
+    display: flex;
+    margin: 36px 36px 0;
+    height: 24px;
+
+    &__option {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        & > img {
+            width: 24px;
+            height: 24px;
+        }
+
+        & > span {
+            margin-left: 6px;
+            font-size: 12pt;
+        }
+
+        &--selected {
+            & > span {
+                font-weight: 500;
+            }
+        }
+    }
+
+    &__separator {
+        width: 28px;
+        text-align: center;
+        font-size: 12pt;
+
+        &::before {
+            content: '/';
+        }
+    }
+}

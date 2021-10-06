@@ -1,0 +1,42 @@
+.skill-category {
+    margin: 10px 0;
+
+    &__title {
+        font-size: 13pt;
+        line-height: 36px;
+        font-weight: 500;
+        color: #8f8f8f;
+    }
+}
+
+.skill-item {
+    margin: 0 0 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+        margin: 8px 0;
+        font-size: 12pt;
+        font-weight: 600;
+        cursor: default;
+    }
+
+    &__rate {
+        display: flex;
+        justify-content: flex-start;
+        height: 24px;
+
+        &__tag {
+            cursor: default;
+            padding: 4px 10px;
+            border-radius: 18px;
+            background-color: #ff8a53;
+            font-weight: 500;
+            color: #fff;
+            font-size: 10pt;
+            margin: 0 4px;
+            line-height: 16px;
+        }
+    }
+}

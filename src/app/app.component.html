@@ -1,14 +1,4 @@
-<div class="language-selector">
-    <div class="language-selector__option">
-        <img src="../assets/img/us_flag.png" />
-        <span>EN</span>
-    </div>
-    <span class="language-selector__separator"></span>
-    <div class="language-selector__option language-selector__option--selected">
-        <img src="../assets/img/brazil_flag.png" />
-        <span>PT</span>
-    </div>
-</div>
+<language-selector></language-selector>
 <main>
     <section class="header">
         <div class="header__photo">
@@ -65,59 +55,31 @@
         </p>
     </section>
     <div class="experiences">
-        <section class="experiences__work">
-            <label class="experiences__work__title">
+        <section class="work">
+            <label class="work__title">
                 Experiências
             </label>
-            <div class="experiences__work__item" *ngFor="let exp of data.works">
-                <div class="experiences__work__item__header">
-                    <h4>{{ exp.company }}</h4>
-                    <span>{{ exp.time }}</span>
-                </div>
-                <label class="experiences__work__item__field">
-                    {{ exp.field }}
-                </label>
-                <p class="experiences__work__item__description" [innerHTML]="exp.description"></p>
-            </div>
+            <work-experience *ngFor="let exp of data.works" [experience]="exp"></work-experience>
         </section>
-        <section class="experiences__skills">
-            <label class="experiences__skills__title">
+        <section class="skills">
+            <label class="skills__title">
                 Habilidades
             </label>
             <button
                 title="Ajuda"
-                class="experiences__skills__help"
-                [ngClass]="{'experiences__skills__help--active': expHelpActive}"
+                class="skills__help"
+                [ngClass]="{'skills__help--active': expHelpActive}"
                 (click)="changeHelpState()">
                 ?
             </button>
             <div
-                class="experiences__skills__help-text"
-                [ngClass]="{'experiences__skills__help-text--active': expHelpActive}">
+                class="skills__help-text"
+                [ngClass]="{'skills__help-text--active': expHelpActive}">
                 Profissional - Trabalhei com esta tecnologia diariamente
                 <br/>Experiente - Utilizei esta tecnologia regularmente
                 <br/>Avançado - Utilizei esta tecnologia em alguns projetos
             </div>
-            <div class="experiences__skills__category" *ngFor="let skill of data.skills">
-                <label class="experiences__skills__category__title">{{ skill.category }} </label>
-                <div class="experiences__skills__item" *ngFor="let item of skill.items">
-                    <div class="experiences__skills__item__title">
-                        {{ item.name }}
-                    </div>
-                    <div class="experiences__skills__item__rate">
-                        <div class="experiences__skills__item__rate__tag">
-                            {{
-                                item.level === 3 ? 'Profissional' :
-                                    item.level === 2 ? 'Experiente' :
-                                        item.level === 1 ? 'Avançado' : 'Conhecido'
-                            }}
-                        </div>
-                        <div class="experiences__skills__item__rate__tag">
-                            {{ item.exp }} exp.
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <skill-category *ngFor="let skill of data.skills" [skill]="skill"></skill-category>
         </section>
     </div>
 </main>

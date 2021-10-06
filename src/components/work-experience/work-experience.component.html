@@ -1,0 +1,38 @@
+<div class="work-experience">
+    <div class="work-experience__header">
+        <h4>{{ experience?.company }}</h4>
+        <span>{{ experience?.time }}</span>
+    </div>
+    <label class="work-experience__field">
+        {{ experience?.field }}
+    </label>
+    <span class="work-experience__section">
+        Descrição
+    </span>
+    <p class="work-experience__description" [innerHTML]="experience?.description"></p>
+    <span class="work-experience__section">
+        Projetos
+    </span>
+    <section class="work-experience__projects">
+        <div class="work-experience__projects__item">
+            <div class="work-experience__projects__item__header">
+                <button>+</button>
+                <label>Genesis</label>
+            </div>
+            <div class="work-experience__projects__item__body">
+
+            </div>
+            <p class="work-experience__projects__item__description">An online shop for restaurants delivery, in there I worked on performance optimization, structure improvements, and feature development.</p>
+        </div>
+        <div class="work-experience__projects__item work-experience__projects__item--active">
+            <div class="work-experience__projects__item__header">
+                <button>+</button>
+                <label>Genesis</label>
+            </div>
+            <div class="work-experience__projects__item__body">
+
+            </div>
+            <p class="work-experience__projects__item__description">An online shop for restaurants delivery, in there I worked on performance optimization, structure improvements, and feature development.</p>
+        </div>
+    </section>
+</div>

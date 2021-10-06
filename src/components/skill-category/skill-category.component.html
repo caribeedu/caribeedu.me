@@ -1,0 +1,20 @@
+<div class="skill-category">
+    <label class="skill-category__title">{{ skill?.category }} </label>
+    <div class="skill-item" *ngFor="let item of skill?.items">
+        <div class="skill-item__title">
+            {{ item.name }}
+        </div>
+        <div class="skill-item__rate">
+            <div class="skill-item__rate__tag">
+                {{
+                    item.level === 3 ? 'Profissional' :
+                        item.level === 2 ? 'Experiente' :
+                            item.level === 1 ? 'Avançado' : 'Conhecido'
+                }}
+            </div>
+            <div class="skill-item__rate__tag">
+                {{ item.exp }} exp.
+            </div>
+        </div>
+    </div>
+</div>
