@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { IProfile } from '../interfaces';
+
+import jsonData from '../data_mockup.json';
 
 @Component({
     selector: 'app-root',
@@ -8,6 +11,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
     /**  */
     public expHelpActive: boolean = false;
+    /** */
+    public data: IProfile = jsonData;
 
     /**
      *
