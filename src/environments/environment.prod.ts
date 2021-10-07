@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+    production: true,
+    bucketUrl: 'https://s3.sa-east-1.amazonaws.com/caribeedu.me/'
 };

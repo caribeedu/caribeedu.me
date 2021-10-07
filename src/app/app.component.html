@@ -3,44 +3,44 @@
     <section class="header">
         <div class="header__info">
             <div class="header__info__photo">
-                <img [src]="data.photo"/>
+                <img [src]="data?.photo"/>
             </div>
             <div class="header__info__about">
                 <h1>
-                    {{ data.name }}
+                    {{ data?.name }}
                 </h1>
                 <h2>
-                    {{ data.title }}
+                    {{ data?.title }}
                 </h2>
                 <p>
-                    {{ data.phrase }}
+                    {{ data?.phrase }}
                 </p>
             </div>
         </div>
         <section class="header__connections">
             <a
                 target="__blank"
-                [href]="data.links.github"
+                [href]="data?.links?.github"
                 class="header__connections__item">
-                <img src="../assets/img/github.png" />
+                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/github.png" />
                 <label>GitHub</label>
             </a>
             <a
                 target="__blank"
-                [href]="data.links.linkedin"
+                [href]="data?.links?.linkedin"
                 class="header__connections__item">
-                <img src="../assets/img/linkedin.png" />
+                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/linkedin.png" />
                 <label>LinkedIn</label>
             </a>
             <a
                 target="__blank"
-                [href]="data.links.hackerrank"
+                [href]="data?.links?.hackerrank"
                 class="header__connections__item">
-                <img src="../assets/img/hackerrank.png" />
+                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/hackerrank.png" />
                 <label>HackerRank</label>
             </a>
             <a
-                [href]="data.links.contact"
+                [href]="data?.links?.contact"
                 class="header__connections__item header__connections__item--contact">
                 <label>Entrar em contato</label>
             </a>
@@ -51,7 +51,7 @@
             Sobre Mim
         </h3>
         <p class="description__text">
-            {{ data.description }}
+            {{ data?.description }}
         </p>
     </section>
     <div class="experiences">
@@ -59,7 +59,7 @@
             <label class="work__title">
                 Experiências
             </label>
-            <work-experience *ngFor="let exp of data.works" [experience]="exp"></work-experience>
+            <work-experience *ngFor="let exp of data?.works" [experience]="exp"></work-experience>
         </section>
         <section class="skills">
             <label class="skills__title">
@@ -79,7 +79,7 @@
                 <br/>Experiente - Utilizei esta tecnologia regularmente
                 <br/>Avançado - Utilizei esta tecnologia em alguns projetos
             </div>
-            <skill-category *ngFor="let skill of data.skills" [skill]="skill"></skill-category>
+            <skill-category *ngFor="let skill of data?.skills" [skill]="skill"></skill-category>
         </section>
     </div>
 </main>
