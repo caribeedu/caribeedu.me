@@ -7,12 +7,12 @@
         {{ experience?.field }}
     </label>
     <span class="work-experience__section">
-        Descrição
+        {{ translateService.activeTranslation?.labels?.workDescription }}
     </span>
     <p class="work-experience__description" [innerHTML]="experience?.description"></p>
     <ng-container *ngIf="experience?.projects?.length">
         <span class="work-experience__section">
-            Experiências
+            {{ translateService.activeTranslation?.labels?.workExperience }}
         </span>
         <section class="work-experience__projects">
             <work-project *ngFor="let proj of experience?.projects" [project]="proj"></work-project>

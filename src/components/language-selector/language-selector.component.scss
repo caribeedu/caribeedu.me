@@ -8,6 +8,9 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        padding: 0;
+        border: 0;
+        background-color: #fff;
 
         & > img {
             width: 24px;

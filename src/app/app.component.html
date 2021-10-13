@@ -3,83 +3,81 @@
     <section class="header">
         <div class="header__info">
             <div class="header__info__photo">
-                <img [src]="data?.photo"/>
+                <img [src]="translateService.activeTranslation?.content?.photo"/>
             </div>
             <div class="header__info__about">
                 <h1>
-                    {{ data?.name }}
+                    {{ translateService.activeTranslation?.content?.name }}
                 </h1>
                 <h2>
-                    {{ data?.title }}
+                    {{ translateService.activeTranslation?.content?.title }}
                 </h2>
                 <p>
-                    {{ data?.phrase }}
+                    {{ translateService.activeTranslation?.content?.phrase }}
                 </p>
             </div>
         </div>
         <section class="header__connections">
             <a
                 target="__blank"
-                [href]="data?.links?.github"
+                [href]="translateService.activeTranslation?.content?.links?.github"
                 class="header__connections__item">
                 <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/github.png" />
                 <label>GitHub</label>
             </a>
             <a
                 target="__blank"
-                [href]="data?.links?.linkedin"
+                [href]="translateService.activeTranslation?.content?.links?.linkedin"
                 class="header__connections__item">
                 <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/linkedin.png" />
                 <label>LinkedIn</label>
             </a>
             <a
                 target="__blank"
-                [href]="data?.links?.hackerrank"
+                [href]="translateService.activeTranslation?.content?.links?.hackerrank"
                 class="header__connections__item">
                 <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/hackerrank.png" />
                 <label>HackerRank</label>
             </a>
             <a
-                [href]="data?.links?.contact"
+                [href]="translateService.activeTranslation?.content?.links?.contact"
                 class="header__connections__item header__connections__item--contact">
-                <label>Entrar em contato</label>
+                <label>{{ translateService.activeTranslation?.labels?.contact }}</label>
             </a>
         </section>
     </section>
     <section class="description">
         <h3 class="description__title">
-            Sobre Mim
+            {{ translateService.activeTranslation?.labels?.aboutMe }}
         </h3>
         <p class="description__text">
-            {{ data?.description }}
+            {{ translateService.activeTranslation?.content?.description }}
         </p>
     </section>
     <div class="experiences">
         <section class="work">
             <label class="work__title">
-                Experiências
+                {{ translateService.activeTranslation?.labels?.workHistory }}
             </label>
-            <work-experience *ngFor="let exp of data?.works" [experience]="exp"></work-experience>
+            <work-experience *ngFor="let exp of translateService.activeTranslation?.content?.works" [experience]="exp"></work-experience>
         </section>
         <section class="skills">
             <label class="skills__title">
-                Habilidades
+                {{ translateService.activeTranslation?.labels?.skills }}
             </label>
             <button
-                title="Ajuda"
+                [title]="translateService.activeTranslation?.labels?.skillsHelpTitle"
                 class="skills__help"
-                [ngClass]="{'skills__help--active': expHelpActive}"
+                [ngClass]="{'skills__help--active': skillsHelpActive}"
                 (click)="changeHelpState()">
                 ?
             </button>
             <div
                 class="skills__help-text"
-                [ngClass]="{'skills__help-text--active': expHelpActive}">
-                Profissional - Trabalhei com esta tecnologia diariamente
-                <br/>Experiente - Utilizei esta tecnologia regularmente
-                <br/>Avançado - Utilizei esta tecnologia em alguns projetos
+                [innerHTML]="translateService.activeTranslation?.labels?.skillsHelpMessage"
+                [ngClass]="{'skills__help-text--active': skillsHelpActive}">
             </div>
-            <skill-category *ngFor="let skill of data?.skills" [skill]="skill"></skill-category>
+            <skill-category *ngFor="let skill of translateService.activeTranslation?.content?.skills" [skill]="skill"></skill-category>
         </section>
     </div>
 </main>

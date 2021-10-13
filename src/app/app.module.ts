@@ -6,7 +6,7 @@ import { LanguageSelectorComponent, SkillCategoryComponent, WorkExperienceCompon
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { DataService } from '../services';
+import { TranslateService } from '../services';
 
 @NgModule({
     declarations: [
@@ -22,7 +22,7 @@ import { DataService } from '../services';
         HttpClientModule
     ],
     providers: [
-        DataService
+        TranslateService
     ],
     bootstrap: [
         AppComponent

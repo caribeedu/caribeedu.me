@@ -1,1 +1,1 @@
-export { DataService } from './data.service';
+export { TranslateService } from './translate.service';

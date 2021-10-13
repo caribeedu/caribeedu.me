@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+
 import { IWorkExperience } from 'src/interfaces';
+import { TranslateService } from 'src/services';
 
 @Component({
   selector: 'work-experience',
@@ -9,4 +11,8 @@ import { IWorkExperience } from 'src/interfaces';
 export class WorkExperienceComponent {
     /**  */
     @Input() public experience: IWorkExperience | undefined;
+
+    constructor(
+        public translateService: TranslateService
+    ) {}
 }

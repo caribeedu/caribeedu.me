@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { DataService } from 'src/services';
+import { TranslateService } from 'src/services';
 import { IProfile } from '../interfaces';
 
 @Component({
@@ -9,23 +9,21 @@ import { IProfile } from '../interfaces';
 })
 export class AppComponent implements AfterViewInit {
     /**  */
-    public expHelpActive: boolean = false;
-    /** */
-    public data: IProfile | undefined;
+    public skillsHelpActive: boolean = false;
 
     constructor(
-        public dataService: DataService
+        public translateService: TranslateService
     ) { }
 
     /** */
     public async ngAfterViewInit(): Promise<void> {
-        this.data = await this.dataService.fetch();
+
     }
 
     /**
      *
      */
     public changeHelpState(): void {
-        this.expHelpActive = !this.expHelpActive;
+        this.skillsHelpActive = !this.skillsHelpActive;
     }
 }
