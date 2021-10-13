@@ -10,11 +10,12 @@
         Experiências
     </span>
     <p class="work-experience__description" [innerHTML]="experience?.description"></p>
-    <span class="work-experience__section">
-        Projetos
-    </span>
-    <section class="work-experience__projects">
-        <work-project></work-project>
-        <work-project></work-project>
-    </section>
+    <ng-container *ngIf="experience?.projects?.length">
+        <span class="work-experience__section">
+            Projetos
+        </span>
+        <section class="work-experience__projects">
+            <work-project *ngFor="let proj of experience?.projects" [project]="proj"></work-project>
+        </section>
+    </ng-container>
 </div>
