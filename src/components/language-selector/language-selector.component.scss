@@ -24,15 +24,19 @@
                 font-weight: 500;
             }
         }
-    }
 
-    &__separator {
-        width: 28px;
-        text-align: center;
-        font-size: 12pt;
-
-        &::before {
+        &::after {
             content: '/';
+            width: 28px;
+            text-align: center;
+            font-size: 12pt;
+        }
+
+        &:last-child {
+            &::after {
+                content: '';
+                width: 0;
+            }
         }
     }
 }
