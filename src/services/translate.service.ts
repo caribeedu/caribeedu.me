@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class TranslateService {
     /** */
-    public selectedLanguage: string | undefined = 'PT';
+    public selectedLanguage: string | undefined = 'pt';
     /** */
     public activeTranslation: ITranslation | null = null;
     /** */
@@ -36,12 +36,14 @@ export class TranslateService {
      *
      */
     public async setDefaultLanguage(): Promise<void> {
-        const language: ITranslateOption | undefined = (await this.getLanguages()).find(language => language.initials === this.selectedLanguage);
+        const options: Array<ITranslateOption> = await this.getLanguages();
+        let language: ITranslateOption | undefined = options.find(language => language.initials === this.selectedLanguage);
 
         if (!language) {
-            return;
+            // If translation isn't available, get default english version
+            language = options.find(language => language.initials === 'en');
         }
 
-        this.activeTranslation = await this.http.get(language?.translation, { responseType: 'json' }).toPromise() as ITranslation;
+        this.activeTranslation = await this.http.get(language!.translation, { responseType: 'json' }).toPromise() as ITranslation;
     }
 }
