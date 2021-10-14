@@ -6,11 +6,7 @@
         </div>
         <div class="skill-item__rate">
             <div class="skill-item__rate__tag">
-                {{
-                    item.level === 3 ? 'Profissional' :
-                        item.level === 2 ? 'Experiente' :
-                            item.level === 1 ? 'Avançado' : 'Conhecido'
-                }}
+                {{ item.level }}
             </div>
             <div class="skill-item__rate__tag">
                 {{ item.exp }} exp.
