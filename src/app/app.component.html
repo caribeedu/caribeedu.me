@@ -1,83 +1,88 @@
-<language-selector></language-selector>
-<main>
-    <section class="header">
-        <div class="header__info">
-            <div class="header__info__photo">
-                <img [src]="translateService.activeTranslation?.content?.photo"/>
+<ng-container>
+    <loading></loading>
+</ng-container>
+<ng-container *ngIf="false">
+    <language-selector></language-selector>
+    <main>
+        <section class="header">
+            <div class="header__info">
+                <div class="header__info__photo">
+                    <img [src]="translateService.activeTranslation?.content?.photo"/>
+                </div>
+                <div class="header__info__about">
+                    <h1>
+                        {{ translateService.activeTranslation?.content?.name }}
+                    </h1>
+                    <h2>
+                        {{ translateService.activeTranslation?.content?.title }}
+                    </h2>
+                    <p>
+                        {{ translateService.activeTranslation?.content?.phrase }}
+                    </p>
+                </div>
             </div>
-            <div class="header__info__about">
-                <h1>
-                    {{ translateService.activeTranslation?.content?.name }}
-                </h1>
-                <h2>
-                    {{ translateService.activeTranslation?.content?.title }}
-                </h2>
-                <p>
-                    {{ translateService.activeTranslation?.content?.phrase }}
-                </p>
-            </div>
+            <section class="header__connections">
+                <a
+                    target="__blank"
+                    [href]="translateService.activeTranslation?.content?.links?.github"
+                    class="header__connections__item">
+                    <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/github.png" />
+                    <label>GitHub</label>
+                </a>
+                <a
+                    target="__blank"
+                    [href]="translateService.activeTranslation?.content?.links?.linkedin"
+                    class="header__connections__item">
+                    <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/linkedin.png" />
+                    <label>LinkedIn</label>
+                </a>
+                <a
+                    target="__blank"
+                    [href]="translateService.activeTranslation?.content?.links?.hackerrank"
+                    class="header__connections__item">
+                    <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/hackerrank.png" />
+                    <label>HackerRank</label>
+                </a>
+                <a
+                    [href]="translateService.activeTranslation?.content?.links?.contact"
+                    class="header__connections__item header__connections__item--contact">
+                    <label>{{ translateService.activeTranslation?.labels?.contact }}</label>
+                </a>
+            </section>
+        </section>
+        <section class="description">
+            <h3 class="description__title">
+                {{ translateService.activeTranslation?.labels?.aboutMe }}
+            </h3>
+            <p class="description__text">
+                {{ translateService.activeTranslation?.content?.description }}
+            </p>
+        </section>
+        <div class="experiences">
+            <section class="work">
+                <label class="work__title">
+                    {{ translateService.activeTranslation?.labels?.workHistory }}
+                </label>
+                <work-experience *ngFor="let exp of translateService.activeTranslation?.content?.works" [experience]="exp"></work-experience>
+            </section>
+            <section class="skills">
+                <label class="skills__title">
+                    {{ translateService.activeTranslation?.labels?.skills }}
+                </label>
+                <button
+                    [title]="translateService.activeTranslation?.labels?.skillsHelpTitle"
+                    class="skills__help"
+                    [ngClass]="{'skills__help--active': skillsHelpActive}"
+                    (click)="changeHelpState()">
+                    ?
+                </button>
+                <div
+                    class="skills__help-text"
+                    [innerHTML]="translateService.activeTranslation?.labels?.skillsHelpMessage"
+                    [ngClass]="{'skills__help-text--active': skillsHelpActive}">
+                </div>
+                <skill-category *ngFor="let skill of translateService.activeTranslation?.content?.skills" [skill]="skill"></skill-category>
+            </section>
         </div>
-        <section class="header__connections">
-            <a
-                target="__blank"
-                [href]="translateService.activeTranslation?.content?.links?.github"
-                class="header__connections__item">
-                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/github.png" />
-                <label>GitHub</label>
-            </a>
-            <a
-                target="__blank"
-                [href]="translateService.activeTranslation?.content?.links?.linkedin"
-                class="header__connections__item">
-                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/linkedin.png" />
-                <label>LinkedIn</label>
-            </a>
-            <a
-                target="__blank"
-                [href]="translateService.activeTranslation?.content?.links?.hackerrank"
-                class="header__connections__item">
-                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/hackerrank.png" />
-                <label>HackerRank</label>
-            </a>
-            <a
-                [href]="translateService.activeTranslation?.content?.links?.contact"
-                class="header__connections__item header__connections__item--contact">
-                <label>{{ translateService.activeTranslation?.labels?.contact }}</label>
-            </a>
-        </section>
-    </section>
-    <section class="description">
-        <h3 class="description__title">
-            {{ translateService.activeTranslation?.labels?.aboutMe }}
-        </h3>
-        <p class="description__text">
-            {{ translateService.activeTranslation?.content?.description }}
-        </p>
-    </section>
-    <div class="experiences">
-        <section class="work">
-            <label class="work__title">
-                {{ translateService.activeTranslation?.labels?.workHistory }}
-            </label>
-            <work-experience *ngFor="let exp of translateService.activeTranslation?.content?.works" [experience]="exp"></work-experience>
-        </section>
-        <section class="skills">
-            <label class="skills__title">
-                {{ translateService.activeTranslation?.labels?.skills }}
-            </label>
-            <button
-                [title]="translateService.activeTranslation?.labels?.skillsHelpTitle"
-                class="skills__help"
-                [ngClass]="{'skills__help--active': skillsHelpActive}"
-                (click)="changeHelpState()">
-                ?
-            </button>
-            <div
-                class="skills__help-text"
-                [innerHTML]="translateService.activeTranslation?.labels?.skillsHelpMessage"
-                [ngClass]="{'skills__help-text--active': skillsHelpActive}">
-            </div>
-            <skill-category *ngFor="let skill of translateService.activeTranslation?.content?.skills" [skill]="skill"></skill-category>
-        </section>
-    </div>
-</main>
+    </main>
+</ng-container>

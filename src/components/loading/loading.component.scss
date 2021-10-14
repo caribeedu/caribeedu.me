@@ -1,0 +1,110 @@
+.loading {
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    left: calc(50% - 250px);
+    top: calc(50% - 250px);
+    border-radius: 16px;
+    animation: box-fill .6s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+
+    &__part {
+        width: 14px;
+        border-radius: 36px;
+        background-color: transparent;
+        position: absolute;
+        contain: content;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 14px;
+            background: rgb(255,82,0);
+            border-radius: 36px;
+            animation: part-fill 1s, part-clear 1s;
+            animation-fill-mode: forwards;
+        }
+
+        &--1 {
+            left: 160px;
+            transform: rotate(-12deg);
+            top: -2px;
+            height: 200px;
+
+            &::after {
+                animation-delay: 0s, 4s;
+                background: linear-gradient(322deg, rgba(255,82,0,1) 0%, rgba(255,138,83,1) 85%);
+            }
+        }
+
+        &--2 {
+            left: 144px;
+            transform: rotate(120deg);
+            top: 126px;
+            height: 92px;
+
+            &::after {
+                animation-delay: 1s, 4s;
+                background: rgb(255,82,0);
+            }
+        }
+
+        &--3 {
+            left: 184px;
+            transform: rotate(232deg);
+            top: -6px;
+            height: 200px;
+
+            &::after {
+                animation-delay: 2s, 4s;
+                background: linear-gradient(210deg, rgba(255,82,0,1) 0%, rgba(255,138,83,1) 85%);
+            }
+        }
+
+        &--4 {
+            left: 168px;
+            transform: rotate(104deg);
+            height: 196px;
+            top: -84px;
+
+            &::after {
+                animation-delay: 3s, 4s;
+                background: linear-gradient(230deg, #ff8951 0%, #ff8a53 85%);
+            }
+        }
+    }
+}
+
+@keyframes part-fill {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes part-clear {
+    from {
+        background: transparent;
+    }
+
+    to {
+        background: white;
+    }
+}
+
+@keyframes box-fill {
+    from {
+        background: transparent;
+        opacity: 0;
+        transition: opacity .6s ease-in;
+    }
+
+    to {
+        background: rgb(255,82,0);
+        opacity: 1;
+    }
+}
