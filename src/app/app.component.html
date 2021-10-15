@@ -1,7 +1,8 @@
-<ng-container>
-    <loading></loading>
+<ng-container *ngIf="loading">
+    <loading (onFinish)="loading = !loading"></loading>
+    <!-- <loading></loading> -->
 </ng-container>
-<ng-container *ngIf="false">
+<ng-container *ngIf="!loading">
     <language-selector></language-selector>
     <main>
         <section class="header">

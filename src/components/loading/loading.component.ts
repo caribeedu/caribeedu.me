@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'loading',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loading.component.scss']
 })
 export class LoadingComponent implements OnInit {
+    @Output() onFinish: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+        setTimeout(() => this.onFinish.emit(), 8000);
+    }
 }

@@ -1,6 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { TranslateService } from 'src/services';
-import { IProfile } from '../interfaces';
 
 @Component({
     selector: 'app-root',
@@ -10,6 +9,8 @@ import { IProfile } from '../interfaces';
 export class AppComponent implements AfterViewInit {
     /**  */
     public skillsHelpActive: boolean = false;
+    /**  */
+    public loading: boolean = true;
 
     constructor(
         public translateService: TranslateService
