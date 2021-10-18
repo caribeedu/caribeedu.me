@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
 import {
     LanguageSelectorComponent,
     SkillCategoryComponent,
@@ -8,11 +11,7 @@ import {
     WorkProjectComponent,
     LoadingComponent
 } from 'src/components';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import { TranslateService } from '../services';
+import { LoadingService, TranslateService } from 'src/services';
 
 @NgModule({
     declarations: [
@@ -29,7 +28,8 @@ import { TranslateService } from '../services';
         HttpClientModule
     ],
     providers: [
-        TranslateService
+        TranslateService,
+        LoadingService
     ],
     bootstrap: [
         AppComponent

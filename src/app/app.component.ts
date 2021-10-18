@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { TranslateService } from 'src/services';
+import { LoadingService, TranslateService } from 'src/services';
 
 @Component({
     selector: 'app-root',
@@ -11,12 +11,14 @@ export class AppComponent implements AfterViewInit {
     public skillsHelpActive: boolean = false;
 
     constructor(
-        public translateService: TranslateService
+        public translateService: TranslateService,
+        public loadingService: LoadingService
     ) { }
 
     /** */
     public async ngAfterViewInit(): Promise<void> {
-
+        await this.translateService.setDefaultLanguage();
+        this.loadingService.changeState(false);
     }
 
     /**

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from 'src/services';
 
 @Component({
@@ -6,17 +6,8 @@ import { TranslateService } from 'src/services';
     templateUrl: './language-selector.component.html',
     styleUrls: ['./language-selector.component.scss']
 })
-export class LanguageSelectorComponent implements AfterViewInit {
-    @Output() public onLoad: EventEmitter<void> = new EventEmitter();
-
+export class LanguageSelectorComponent {
     constructor(
         public translateService: TranslateService
     ) { }
-
-    /**
-     *
-     */
-    public async ngAfterViewInit(): Promise<void> {
-        await this.translateService.setDefaultLanguage();
-    }
 }
