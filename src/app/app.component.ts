@@ -9,8 +9,6 @@ import { TranslateService } from 'src/services';
 export class AppComponent implements AfterViewInit {
     /**  */
     public skillsHelpActive: boolean = false;
-    /**  */
-    public loading: boolean = true;
 
     constructor(
         public translateService: TranslateService
