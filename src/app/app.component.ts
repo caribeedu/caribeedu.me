@@ -18,7 +18,7 @@ export class AppComponent implements AfterViewInit {
 
     /** */
     public async ngAfterViewInit(): Promise<void> {
-        await this.translateService.setDefaultLanguage();
+        await this.translateService.setDefaultTranslation();
         this.loadingService.changeState(ELoadingState.CLOSED);
     }
 

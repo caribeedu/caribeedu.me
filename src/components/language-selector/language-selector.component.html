@@ -3,6 +3,7 @@
         [title]="option.language"
         *ngFor="let option of translateService.translationOptions"
         class="language-selector__option"
+        (click)="changeLanguage(option.initials, option.translation)"
         [ngClass]="{
             'language-selector__option--selected': option.initials === translateService.selectedLanguage
         }">

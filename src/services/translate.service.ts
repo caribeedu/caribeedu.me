@@ -22,7 +22,7 @@ export class TranslateService {
     /**
      *
      */
-    public async getLanguages(): Promise<void> {
+    public async getTranslations(): Promise<void> {
         this.translationOptions = await this.http.get(
             environment.bucketUrl + 'i18n/manifest.json',
             {
@@ -34,9 +34,9 @@ export class TranslateService {
     /**
      *
      */
-    public async setDefaultLanguage(): Promise<void> {
+    public async setDefaultTranslation(): Promise<void> {
         const initials: string | null = this.getDomainLanguage();
-        await this.getLanguages();
+        await this.getTranslations();
 
         let language: ITranslateOption | undefined = this.translationOptions.find(language => language.initials === initials);
 
@@ -45,8 +45,15 @@ export class TranslateService {
             language = this.translationOptions.find(language => language.initials === 'en');
         }
 
-        this.selectedLanguage = language!.initials;
-        this.activeTranslation = await this.http.get(language!.translation, { responseType: 'json' }).toPromise() as ITranslation;
+        await this.changeTranslation(language!.initials, language!.translation);
+    }
+
+    /**
+     *
+     */
+    public async changeTranslation(initials: string, translationUrl: string): Promise<void> {
+        this.activeTranslation = await this.http.get(translationUrl, { responseType: 'json' }).toPromise() as ITranslation;
+        this.selectedLanguage = initials;
     }
 
     /**
