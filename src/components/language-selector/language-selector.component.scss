@@ -11,6 +11,7 @@
         padding: 0;
         border: 0;
         background-color: #fff;
+        width: 82px;
 
         & > img {
             width: 24px;
@@ -38,6 +39,8 @@
         }
 
         &:last-child {
+            width: 52px;
+
             &::after {
                 content: '';
                 width: 0;
