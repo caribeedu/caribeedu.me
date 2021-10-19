@@ -1,6 +1,9 @@
 <section
     class="loading-container"
-    [ngClass]="{'loading-container--closed': !active$.value}">
+    [ngClass]="{
+        'loading-container--active': active$.value,
+        'loading-container--inactive': !active$.value
+    }">
     <div class="loading">
         <div class="loading__part loading__part--1"></div>
         <div class="loading__part loading__part--2"></div>

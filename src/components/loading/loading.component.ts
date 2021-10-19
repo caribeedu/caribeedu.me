@@ -32,6 +32,7 @@ export class LoadingComponent implements OnInit {
                 }
             }
             else if (state === ELoadingState.OPEN) {
+                this.active$.next(true);
                 this.shouldClose = false;
 
                 this.openingTimeout = setTimeout(() => {

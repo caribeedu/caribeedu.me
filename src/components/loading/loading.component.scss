@@ -12,85 +12,107 @@
     background-color: var(--white);
     z-index: 1;
 
-    &--closed {
+    .loading {
+        width: 112px;
+        height: 112px;
+        border-radius: 36px;
+        position: relative;
+
+        &__part {
+            width: 10px;
+            border-radius: 36px;
+            position: absolute;
+            contain: content;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                border-radius: 36px;
+            }
+
+            &--1 {
+                left: 56px;
+                transform: rotate(-12deg);
+                top: 19px;
+                height: 86px;
+            }
+
+            &--2 {
+                left: 48px;
+                transform: rotate(116deg);
+                top: 72px;
+                height: 40px;
+            }
+
+            &--3 {
+                left: 58px;
+                transform: rotate(228deg);
+                top: 25px;
+                height: 74px;
+            }
+
+            &--4 {
+                left: 51px;
+                transform: rotate(114deg);
+                height: 72px;
+                top: -10px;
+            }
+        }
+    }
+
+    &--active {
+        .loading {
+            transition: opacity 1s ease-in;
+            background: transparent;
+            animation: box-fill 1s;
+            animation-delay: 4s;
+            animation-fill-mode: forwards;
+
+            &__part {
+                background-color: transparent;
+
+                &::after {
+                    height: 0;
+                    background: var(--dark-orange);
+                    animation: part-fill 1s, part-clear 1s;
+                    animation-fill-mode: forwards;
+                }
+
+                &--1 {
+                    &::after {
+                        animation-delay: 0s, 4s;
+                        background: linear-gradient(322deg, var(--light-orange) 0%, var(--medium-orange) 85%);
+                    }
+                }
+
+                &--2 {
+                    &::after {
+                        animation-delay: 1s, 4s;
+                        background: var(--light-orange);
+                    }
+                }
+
+                &--3 {
+                    &::after {
+                        animation-delay: 2s, 4s;
+                        background: linear-gradient(210deg, var(--light-orange) 0%, var(--medium-orange) 85%);
+                    }
+                }
+
+                &--4 {
+                    &::after {
+                        animation-delay: 3s, 4s;
+                        background: var(--medium-orange);
+                    }
+                }
+            }
+        }
+    }
+
+    &--inactive {
         animation: disappear .5s;
         animation-fill-mode: forwards;
-    }
-}
-
-.loading {
-    width: 112px;
-    height: 112px;
-    border-radius: 36px;
-    animation: box-fill 1s;
-    animation-delay: 4s;
-    animation-fill-mode: forwards;
-    position: relative;
-
-    &__part {
-        width: 10px;
-        border-radius: 36px;
-        background-color: transparent;
-        position: absolute;
-        contain: content;
-
-        &::after {
-            content: "";
-            position: absolute;
-            width: 10px;
-            background: var(--dark-orange);
-            border-radius: 36px;
-            animation: part-fill 1s, part-clear 1s;
-            animation-fill-mode: forwards;
-        }
-
-        &--1 {
-            left: 56px;
-            transform: rotate(-12deg);
-            top: 19px;
-            height: 86px;
-
-            &::after {
-                animation-delay: 0s, 4s;
-                background: linear-gradient(322deg, var(--light-orange) 0%, var(--medium-orange) 85%);
-            }
-        }
-
-        &--2 {
-            left: 48px;
-            transform: rotate(116deg);
-            top: 72px;
-            height: 40px;
-
-            &::after {
-                animation-delay: 1s, 4s;
-                background: var(--light-orange);
-            }
-        }
-
-        &--3 {
-            left: 58px;
-            transform: rotate(228deg);
-            top: 25px;
-            height: 74px;
-
-            &::after {
-                animation-delay: 2s, 4s;
-                background: linear-gradient(210deg, var(--light-orange) 0%, var(--medium-orange) 85%);
-            }
-        }
-
-        &--4 {
-            left: 51px;
-            transform: rotate(114deg);
-            height: 72px;
-            top: -10px;
-
-            &::after {
-                animation-delay: 3s, 4s;
-                background: var(--medium-orange);
-            }
-        }
     }
 }
 
@@ -127,9 +149,7 @@
 
 @keyframes box-fill {
     from {
-        background: transparent;
         opacity: 0;
-        transition: opacity 1s ease-in;
     }
 
     to {
