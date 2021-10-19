@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+import { ELoadingState } from 'src/enums';
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoadingService {
     /** */
-    public readonly activeState$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+    public readonly state$: BehaviorSubject<ELoadingState> = new BehaviorSubject<ELoadingState>(ELoadingState.OPEN);
 
     /**
      *
      */
-    public changeState(active: boolean): void {
-        this.activeState$.next(active);
+    public changeState(state: ELoadingState): void {
+        this.state$.next(state);
     }
 }

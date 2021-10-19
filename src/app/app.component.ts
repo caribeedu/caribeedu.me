@@ -1,4 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { ELoadingState } from 'src/enums';
 import { LoadingService, TranslateService } from 'src/services';
 
 @Component({
@@ -18,7 +19,7 @@ export class AppComponent implements AfterViewInit {
     /** */
     public async ngAfterViewInit(): Promise<void> {
         await this.translateService.setDefaultLanguage();
-        this.loadingService.changeState(false);
+        this.loadingService.changeState(ELoadingState.CLOSED);
     }
 
     /**
