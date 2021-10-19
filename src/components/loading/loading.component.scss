@@ -9,7 +9,7 @@
     left: 0;
     top: 0;
     contain: content;
-    background-color: white;
+    background-color: var(--white);
     z-index: 1;
 
     &--closed {
@@ -121,7 +121,7 @@
     }
 
     to {
-        background: white;
+        background: var(--white);
     }
 }
 

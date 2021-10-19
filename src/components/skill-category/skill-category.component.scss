@@ -5,7 +5,7 @@
         font-size: 13pt;
         line-height: 36px;
         font-weight: 500;
-        color: #8f8f8f;
+        color: var(--dark-gray);
     }
 }
 
@@ -31,7 +31,7 @@
             cursor: default;
             padding: 4px 10px;
             border-radius: 18px;
-            background-color: #ff8a53;
+            background-color: var(--light-orange);
             font-weight: 500;
             color: #fff;
             font-size: 10pt;

@@ -18,7 +18,7 @@
             margin: 0;
             font-size: 12pt;
             cursor: default;
-            color: #8f8f8f;
+            color: var(--dark-gray);
             line-height: 36px;
         }
     }
@@ -28,7 +28,7 @@
         font-weight: 600;
         cursor: default;
         line-height: 28px;
-        color: #ff5200;
+        color: var(--dark-orange);
     }
 
     &__section {
@@ -52,7 +52,7 @@
                 margin: 16px auto 0;
                 height: 1px;
                 width: 45%;
-                background-color: #d9d9d9;
+                background-color: var(--light-gray);
             }
 
             &:last-of-type {

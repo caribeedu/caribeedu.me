@@ -8,14 +8,27 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    // Base color
+    // Base primary color
     --medium-orange: #ffa400;
-    // Darken color
+    // Darken primary color
     --dark-orange: #ff653a;
-    // Lighten color
+    // Lighten primary color
     --light-orange: #ff7a00;
+    // White primary color
+    --white-orange: #ffdfcf;
+
+    // Base gray
+    --medium-gray: #adadad;
+    // Darken gray
+    --dark-gray: #8f8f8f;
+    // Lighten gray
+    --light-gray: #d9d9d9;
+
+    // Base white
+    --white: #ffffff;
 }
 
 body {
     margin: 0;
+    overflow-y: hidden;
 }

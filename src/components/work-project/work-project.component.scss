@@ -17,13 +17,13 @@
             background: transparent;
             cursor: pointer;
             height: 24px;
-            color: #ff8a53;
+            color: var(--light-orange);
             transition: all .2s ease-in;
             user-select: none;
 
             &:hover {
-                background-color: #ff9665;
-                color: #ffffff;
+                background-color: var(--medium-orange);
+                color: var(--white);
             }
         }
 
@@ -44,7 +44,7 @@
         margin: 8px 0 0;
         font-weight: 500;
         font-size: 11pt;
-        color: #959595;
+        color: var(--medium-gray);
     }
 
     &--active {
@@ -54,8 +54,8 @@
             margin-bottom: 8px;
 
             & > button {
-                background-color: #ff9665;
-                color: #ffffff;
+                background-color: var(--medium-orange);
+                color: var(--white);
             }
         }
 
@@ -72,13 +72,13 @@
                 font-size: 11pt;
                 font-weight: 400;
                 display: block;
-                color: #ababab;
+                color: var(--medium-gray);
                 margin-bottom: 6px;
             }
 
             &__techs {
                 font-weight: 500;
-                color: #ff5200;
+                color: var(--dark-orange);
                 display: table;
                 margin: 0 auto;
             }
