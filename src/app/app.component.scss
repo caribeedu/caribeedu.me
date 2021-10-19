@@ -157,7 +157,7 @@ main {
         color: var(--medium-gray);
         font-weight: 600;
         font-size: 12pt;
-        line-height: 22px;
+        line-height: 20px;
         cursor: pointer;
         transform: translate(4px, -2px);
         padding: 0;
@@ -238,8 +238,8 @@ main {
 
                 & > h2 {
                     font-size: 16pt;
-                    height: 32px;
                     line-height: 32px;
+                    height: unset;
                 }
 
                 & > p {
