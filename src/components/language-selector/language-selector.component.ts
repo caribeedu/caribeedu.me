@@ -14,7 +14,7 @@ export class LanguageSelectorComponent {
     /**
      *
      */
-    public async changeLanguage(initials: string, translationUrl: string): Promise<void> {
-        await this.translateService.changeTranslation(initials, translationUrl);
+    public async changeLanguage(translationUrl: string): Promise<void> {
+        location.href = translationUrl;
     }
 }

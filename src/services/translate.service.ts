@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ITranslateOption, ITranslation } from 'src/interfaces';
-import { environment } from 'src/environments/environment';
 import { parse, ParsedDomain, ParseError } from 'psl';
+
+import { ITranslateOption, ITranslation } from 'src/interfaces';
+import { MetaTagsService } from './meta-tags.service';
+
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +19,8 @@ export class TranslateService {
     public translationOptions: Array<ITranslateOption> = [];
 
     constructor(
-        public http: HttpClient
+        public http: HttpClient,
+        public metaTagsService: MetaTagsService
     ) { }
 
     /**
@@ -45,15 +49,13 @@ export class TranslateService {
             language = this.translationOptions.find(language => language.initials === 'en');
         }
 
-        await this.changeTranslation(language!.initials, language!.translation);
-    }
+        this.activeTranslation = await this.http.get(language!.translation, { responseType: 'json' }).toPromise() as ITranslation;
+        this.selectedLanguage = language!.initials;
 
-    /**
-     *
-     */
-    public async changeTranslation(initials: string, translationUrl: string): Promise<void> {
-        this.activeTranslation = await this.http.get(translationUrl, { responseType: 'json' }).toPromise() as ITranslation;
-        this.selectedLanguage = initials;
+        // Create translated version url, if isn't default
+        const versionUrl: string  = `https://${language!.initials === 'en' ? '' : language!.initials + '.'}caribeedu.me`;
+
+        this.metaTagsService.set(this.activeTranslation.meta, versionUrl, this.activeTranslation.content.photo);
     }
 
     /**
