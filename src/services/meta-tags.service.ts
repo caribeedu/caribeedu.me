@@ -23,20 +23,40 @@ export class MetaTagsService {
                 content: metadata.description
             },
             {
-                name: "og:title",
+                property: "og:site_name",
+                content: "Edu Caribé"
+            },
+            {
+                property: "og:title",
                 content: metadata.title
             },
             {
-                name: "og:description",
+                property: "og:description",
                 content: metadata.description
             },
             {
-                name: "og:url",
+                property: "og:url",
                 content: versionUrl
             },
             {
-                name: "og:image",
+                property: "og:type",
+                content: "website"
+            },
+            {
+                property: "og:image",
                 content: imageUrl
+            },
+            {
+                property: "og:image:type",
+                content: "image/png"
+            },
+            {
+                property: "og:image:width",
+                content: "192"
+            },
+            {
+                property: "og:image:height",
+                content: "192"
             }
         ]);
     }
