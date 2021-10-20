@@ -11,7 +11,12 @@ import {
     WorkProjectComponent,
     LoadingComponent
 } from 'src/components';
-import { LoadingService, TranslateService, MetaTagsService } from 'src/services';
+import {
+    LoadingService,
+    TranslateService,
+    MetaTagsService,
+    AnalyticsService
+} from 'src/services';
 
 @NgModule({
     declarations: [
@@ -30,7 +35,8 @@ import { LoadingService, TranslateService, MetaTagsService } from 'src/services'
     providers: [
         TranslateService,
         LoadingService,
-        MetaTagsService
+        MetaTagsService,
+        AnalyticsService
     ],
     bootstrap: [
         AppComponent
