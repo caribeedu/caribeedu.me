@@ -14,7 +14,7 @@ export class LanguageSelectorComponent {
     /**
      *
      */
-    public async changeLanguage(translationUrl: string): Promise<void> {
-        location.href = translationUrl;
+    public async changeLanguage(initials: string): Promise<void> {
+        location.href = `https://${initials}.caribeedu.me/`;
     }
 }
