@@ -55,7 +55,7 @@ export class TranslateService {
         // Create translated version url, if isn't default
         const versionUrl: string  = `https://${language!.initials === 'en' ? '' : language!.initials + '.'}caribeedu.me`;
 
-        this.metaTagsService.set(this.activeTranslation.meta, versionUrl, this.activeTranslation.content.photo);
+        this.metaTagsService.set(this.activeTranslation.meta, versionUrl);
     }
 
     /**
