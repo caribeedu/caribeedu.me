@@ -24,7 +24,7 @@ export class MetaTagsService {
             },
             {
                 property: "og:site_name",
-                content: "Edu Caribé"
+                content: metadata.title
             },
             {
                 property: "og:title",
@@ -37,26 +37,6 @@ export class MetaTagsService {
             {
                 property: "og:url",
                 content: versionUrl
-            },
-            {
-                property: "og:type",
-                content: "website"
-            },
-            {
-                property: "og:image",
-                content: imageUrl
-            },
-            {
-                property: "og:image:type",
-                content: "image/png"
-            },
-            {
-                property: "og:image:width",
-                content: "192"
-            },
-            {
-                property: "og:image:height",
-                content: "192"
             }
         ]);
     }
