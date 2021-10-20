@@ -15,7 +15,7 @@ export class MetaTagsService {
     /**
      *
      */
-     public set(metadata: ITranslationMetadata, versionUrl: string, imageUrl: string): void {
+     public set(metadata: ITranslationMetadata, versionUrl: string): void {
         this.title.setTitle(metadata.title);
         this.meta.addTags([
             {
