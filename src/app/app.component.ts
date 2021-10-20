@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 import { ELoadingState } from 'src/enums';
 import { LoadingService, TranslateService, AnalyticsService } from 'src/services';
@@ -8,7 +8,7 @@ import { LoadingService, TranslateService, AnalyticsService } from 'src/services
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit {
     /**  */
     public skillsHelpActive: boolean = false;
 
@@ -18,10 +18,18 @@ export class AppComponent implements AfterViewInit {
         public analyticsService: AnalyticsService
     ) { }
 
-    /** */
+    /**
+     *
+     */
+    public ngOnInit(): void {
+        this.analyticsService.registerRouterEvents();
+    }
+
+    /**
+     *
+     */
     public async ngAfterViewInit(): Promise<void> {
         await this.translateService.setDefaultTranslation();
-        this.analyticsService.registerRouterEvents();
         this.loadingService.changeState(ELoadingState.CLOSED);
     }
 
