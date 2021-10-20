@@ -4,6 +4,7 @@ export interface ITranslateOption {
     language: string;
     initials: string;
     flag: string;
+    flagCountry: string;
     translation: string;
 }
 

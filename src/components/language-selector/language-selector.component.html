@@ -7,7 +7,7 @@
         [ngClass]="{
             'language-selector__option--selected': option.initials === translateService.selectedLanguage
         }">
-        <img [src]="option.flag" />
+        <img [src]="option.flag" [alt]="'Flag of ' + option.flagCountry" />
         <span>{{option.initials}}</span>
     </button>
 </section>

@@ -4,7 +4,7 @@
     <section class="header">
         <div class="header__info">
             <div class="header__info__photo">
-                <img [src]="translateService.activeTranslation?.content?.photo"/>
+                <img [src]="translateService.activeTranslation?.content?.photo" alt="Front photo of Edu Caribé"/>
             </div>
             <div class="header__info__about">
                 <h1>
@@ -23,21 +23,21 @@
                 target="__blank"
                 [href]="translateService.activeTranslation?.content?.links?.github"
                 class="header__connections__item">
-                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/github.png" />
+                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/github.png" alt="GitHub Logo for Link" />
                 <label>GitHub</label>
             </a>
             <a
                 target="__blank"
                 [href]="translateService.activeTranslation?.content?.links?.linkedin"
                 class="header__connections__item">
-                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/linkedin.png" />
+                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/linkedin.png" alt="LinkedIn Logo for Link" />
                 <label>LinkedIn</label>
             </a>
             <a
                 target="__blank"
                 [href]="translateService.activeTranslation?.content?.links?.hackerrank"
                 class="header__connections__item">
-                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/hackerrank.png" />
+                <img src="https://s3.sa-east-1.amazonaws.com/caribeedu.me/hackerrank.png" alt="HackerRank Logo for Link" />
                 <label>HackerRank</label>
             </a>
             <a
