@@ -13,6 +13,12 @@
     z-index: 1;
 
     .loading {
+        // Duration of animation part
+        --duration-part-animation: .4s;
+        // Interval of animation part
+        --interval-part-animation: .4s;
+
+        background: transparent;
         width: 112px;
         height: 112px;
         border-radius: 36px;
@@ -23,9 +29,11 @@
             border-radius: 36px;
             position: absolute;
             contain: content;
+            background-color: transparent;
 
             &::after {
                 content: "";
+                background: var(--dark-orange);
                 position: absolute;
                 width: 10px;
                 border-radius: 36px;
@@ -63,46 +71,36 @@
 
     &--active {
         .loading {
-            transition: opacity 1s ease-in;
-            background: transparent;
-            animation: box-fill 1s;
-            animation-delay: 4s;
-            animation-fill-mode: forwards;
-
             &__part {
-                background-color: transparent;
-
                 &::after {
                     height: 0;
-                    background: var(--dark-orange);
-                    animation: part-fill 1s, part-clear 1s;
+                    animation: part-fill var(--duration-part-animation);
                     animation-fill-mode: forwards;
                 }
 
                 &--1 {
                     &::after {
-                        animation-delay: 0s, 4s;
                         background: linear-gradient(322deg, var(--light-orange) 0%, var(--medium-orange) 85%);
                     }
                 }
 
                 &--2 {
                     &::after {
-                        animation-delay: 1s, 4s;
+                        animation-delay: var(--interval-part-animation);
                         background: var(--light-orange);
                     }
                 }
 
                 &--3 {
                     &::after {
-                        animation-delay: 2s, 4s;
+                        animation-delay: calc(var(--interval-part-animation) * 2);
                         background: linear-gradient(210deg, var(--light-orange) 0%, var(--medium-orange) 85%);
                     }
                 }
 
                 &--4 {
                     &::after {
-                        animation-delay: 3s, 4s;
+                        animation-delay: calc(var(--interval-part-animation) * 3);
                         background: var(--medium-orange);
                     }
                 }
@@ -134,26 +132,5 @@
 
     to {
         height: 100%;
-    }
-}
-
-@keyframes part-clear {
-    from {
-        background: transparent;
-    }
-
-    to {
-        background: var(--white);
-    }
-}
-
-@keyframes box-fill {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        background: linear-gradient(322deg, var(--dark-orange) 0%, var(--medium-orange) 85%);
-        opacity: 1;
     }
 }

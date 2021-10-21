@@ -24,39 +24,59 @@ export class LoadingComponent implements OnInit, OnDestroy {
         public loadingService: LoadingService
     ) { }
 
-    /**  */
+    /**
+     *
+    */
     public ngOnInit(): void {
         this.handleStateChanges();
     }
 
-    /** */
+    /**
+     *
+    */
     public handleStateChanges(): void {
         this.loadingService.state$
             .pipe(takeUntil(this.destroy$))
             .subscribe((state: ELoadingState) => {
-                if (state === ELoadingState.CLOSED) {
-                    if (this.activeTimeout) {
-                        this.shouldClose = true;
-                    }
-                    else {
-                        this.active$.next(false);
-                    }
+                if (state === ELoadingState.OPEN) {
+                    this.openLoading();
                 }
-                else if (state === ELoadingState.OPEN) {
-                    this.active$.next(true);
-                    this.shouldClose = false;
-
-                    this.activeTimeout = setTimeout(() => {
-                        if (this.shouldClose) {
-                            this.active$.next(false);
-                        }
-                        this.activeTimeout = null;
-                    }, 8000);
+                else if (state === ELoadingState.CLOSED) {
+                    this.closeLoading();
                 }
         });
     }
 
-    /** */
+    /**
+     *
+    */
+    public openLoading(): void {
+        this.active$.next(true);
+        this.shouldClose = false;
+
+        this.activeTimeout = setTimeout(() => {
+            if (this.shouldClose) {
+                this.active$.next(false);
+            }
+            this.activeTimeout = null;
+        }, 3200);
+    }
+
+    /**
+     *
+    */
+    public closeLoading(): void {
+        if (this.activeTimeout) {
+            this.shouldClose = true;
+        }
+        else {
+            this.active$.next(false);
+        }
+    }
+
+    /**
+     *
+    */
     public ngOnDestroy(): void {
         this.destroy$.next();
     }
