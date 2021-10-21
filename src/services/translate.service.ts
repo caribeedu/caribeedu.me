@@ -11,11 +11,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TranslateService {
-    /** */
+    /** Active language initials */
     public selectedLanguage: string | undefined = undefined;
-    /** */
+    /** Active translation */
     public activeTranslation: ITranslation | null = null;
-    /** */
+    /** Language translation available options */
     public translationOptions: Array<ITranslateOption> = [];
 
     constructor(
@@ -49,7 +49,9 @@ export class TranslateService {
             language = this.translationOptions.find(language => language.initials === 'en');
         }
 
+        // Get translated data
         this.activeTranslation = await this.http.get(language!.translation, { responseType: 'json' }).toPromise() as ITranslation;
+        // Set active language initials
         this.selectedLanguage = language!.initials;
 
         // Create translated version url, if isn't default
