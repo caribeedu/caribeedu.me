@@ -9,7 +9,7 @@
     left: 0;
     top: 0;
     contain: content;
-    background-color: var(--white);
+    background-color: var(--medium-white);
     z-index: 1;
 
     .loading {
@@ -132,5 +132,11 @@
 
     to {
         height: 100%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .loading-container {
+        background-color: #121212;
     }
 }

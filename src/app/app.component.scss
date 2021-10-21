@@ -194,6 +194,84 @@ main {
     }
 }
 
+@media (prefers-color-scheme: dark) {
+    .header {
+        &__info {
+            &__about {
+                & > h1 {
+                    color: var(--medium-white);
+                }
+
+                & > p {
+                    color: var(--light-black);
+                }
+            }
+        }
+
+        &__connections {
+            &__item {
+                &:not(:last-child) {
+                    & > label {
+                        color: var(--dark-white);
+                    }
+
+                    &::before {
+                        content: '';
+                        background-color: var(--medium-white);
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 100%;
+                        transform: translateX(22px);
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+    }
+
+    .description {
+        border-color: var(--medium-black);
+
+        &__title {
+            color: var(--medium-white);
+        }
+
+        &__text {
+            color: var(--dark-white);
+        }
+    }
+
+    .work {
+        border-color: var(--medium-black);
+
+        &__title {
+            color: var(--medium-white);
+        }
+    }
+
+    .skills {
+        &__title {
+            color: var(--medium-white);
+        }
+
+        &__help {
+            &--active {
+                color: var(--dark-black);
+            }
+        }
+
+        &__help-text {
+            &--active {
+                background-color: var(--dark-black);
+            }
+        }
+    }
+
+    .experiences {
+        border-color: var(--medium-black);
+    }
+}
+
 @media screen and (max-width: 1280px) {
     .skills {
         &__help-text {

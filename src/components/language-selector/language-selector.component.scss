@@ -10,7 +10,7 @@
         cursor: pointer;
         padding: 0;
         border: 0;
-        background-color: #fff;
+        background-color: transparent;
         width: 82px;
 
         & > img {
@@ -45,6 +45,16 @@
             &::after {
                 content: '';
                 width: 0;
+            }
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .language-selector {
+        &__option {
+            & > span {
+                color: var(--medium-white);
             }
         }
     }

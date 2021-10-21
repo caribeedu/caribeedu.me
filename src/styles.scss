@@ -18,6 +18,13 @@
     // White primary color
     --white-orange: #ffdfcf;
 
+    // Base black
+    --medium-black: #333;
+    // Darken black
+    --dark-black: #1e1e1e;
+    // Lighten black
+    --light-black: #484848;
+
     // Base gray
     --medium-gray: #adadad;
     // Darken gray
@@ -26,10 +33,23 @@
     --light-gray: #d9d9d9;
 
     // Base white
-    --white: #ffffff;
+    --medium-white: #ffffff;
+    // Darken white
+    --dark-white: #ededed;
 }
 
 body {
     margin: 0;
     overflow-y: hidden;
+    background-color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    * {
+        color: var(--dark-white);
+    }
+
+    body {
+        background-color: #121212;
+    }
 }

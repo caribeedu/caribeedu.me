@@ -68,6 +68,36 @@
     }
 }
 
+@media (prefers-color-scheme: dark) {
+    .work-experience {
+        &__header {
+            & > h4 {
+                color: var(--dark-white);
+            }
+
+            & > span {
+                color: var(--light-black);
+            }
+        }
+
+        &__description {
+            color: var(--dark-white);
+        }
+
+        &__section {
+            color: var(--dark-white);
+        }
+
+        &__projects {
+            work-project {
+                &::after {
+                    background-color: var(--medium-black);
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .work-experience {
         &__header {
