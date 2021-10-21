@@ -1,13 +1,13 @@
 <section class="language-selector">
-    <button
+    <a
         [title]="option.language"
         *ngFor="let option of translateService.translationOptions"
         class="language-selector__option"
-        (click)="changeLanguage(option.initials)"
+        href="https://{{option.initials}}.caribeedu.me/"
         [ngClass]="{
             'language-selector__option--selected': option.initials === translateService.selectedLanguage
         }">
         <img [src]="option.flag" [alt]="'Flag of ' + option.flagCountry" />
         <span>{{option.initials}}</span>
-    </button>
+    </a>
 </section>

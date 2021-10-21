@@ -10,11 +10,4 @@ export class LanguageSelectorComponent {
     constructor(
         public translateService: TranslateService
     ) { }
-
-    /**
-     *
-     */
-    public async changeLanguage(initials: string): Promise<void> {
-        location.href = `https://${initials}.caribeedu.me/`;
-    }
 }
