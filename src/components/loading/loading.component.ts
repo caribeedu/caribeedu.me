@@ -79,5 +79,6 @@ export class LoadingComponent implements OnInit, OnDestroy {
     */
     public ngOnDestroy(): void {
         this.destroy$.next();
+        this.destroy$.complete();
     }
 }
