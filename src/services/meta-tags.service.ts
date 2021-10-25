@@ -13,7 +13,12 @@ export class MetaTagsService {
     ) { }
 
     /**
+     * set
      *
+     * Defines basic pre-specified meta tags with given translation data
+     *
+     * @param metadata - Title and description of in use language
+     * @param versionUrl - Url of specified language version
      */
      public set(metadata: ITranslationMetadata, versionUrl: string): void {
         this.title.setTitle(metadata.title);
