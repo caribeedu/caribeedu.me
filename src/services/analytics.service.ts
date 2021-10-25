@@ -13,21 +13,23 @@ export class AnalyticsService {
     ) {}
 
     /**
+     * registerRouterEvents
      *
+     * Listens to route changes for google analytics metric evaluations
      */
     public registerRouterEvents(): void {
         this.router.events
             .pipe(
                 filter(event => event instanceof NavigationEnd)
             )
-            .subscribe((event) => {
+            .subscribe((event) =>
                 gtag(
                     'event',
                     'page_view',
                     {
                         page_path: (event as NavigationEnd).urlAfterRedirects
                     }
-                );
-            });
+                )
+            );
     }
 }
