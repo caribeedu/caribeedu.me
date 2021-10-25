@@ -17,26 +17,37 @@ export class TranslateService {
     public activeTranslation: ITranslation | null = null;
     /** Language translation available options */
     public translationOptions: Array<ITranslateOption> = [];
+    /** Bucket repository url */
+    public readonly bucketUrl: string = environment.bucketUrl;
 
     constructor(
         public http: HttpClient,
         public metaTagsService: MetaTagsService
     ) { }
 
-    /**
-     *
-     */
-    public async getTranslations(): Promise<void> {
-        this.translationOptions = await this.http.get(
-            environment.bucketUrl + 'i18n/manifest.json',
-            {
-                responseType: 'json'
-            }
-        ).toPromise() as Array<ITranslateOption>;
+    /** Current host */
+    public get host(): string {
+        return window.location.host;
     }
 
     /**
+     *  getTranslations
      *
+     *  Fetch translations options manifest
+     */
+    public async getTranslations(): Promise<void> {
+        this.translationOptions = await this.http.get<Array<ITranslateOption>>(
+            this.bucketUrl + 'i18n/manifest.json',
+            {
+                responseType: 'json'
+            }
+        ).toPromise();
+    }
+
+    /**
+     * setDefaultTranslation
+     *
+     * Defines translation in use by subdomain or set's default
      */
     public async setDefaultTranslation(): Promise<void> {
         const initials: string | null = this.getDomainLanguage();
@@ -50,21 +61,26 @@ export class TranslateService {
         }
 
         // Get translated data
-        this.activeTranslation = await this.http.get(language!.translation, { responseType: 'json' }).toPromise() as ITranslation;
+        this.activeTranslation = await this.http.get<ITranslation>(language!.translation, { responseType: 'json' }).toPromise();
         // Set active language initials
         this.selectedLanguage = language!.initials;
 
         // Create translated version url, if isn't default
-        const versionUrl: string  = `https://${language!.initials === 'en' ? '' : language!.initials + '.'}caribeedu.me`;
+        const versionUrl: string  = `https://${this.selectedLanguage === 'en' ? '' : this.selectedLanguage + '.'}caribeedu.me`;
 
+        // Changes the active meta tags value
         this.metaTagsService.set(this.activeTranslation.meta, versionUrl);
     }
 
     /**
+     * getDomainLanguage
      *
+     * Gets the subdomain active of host
+     *
+     * @returns Subdomain value
      */
     public getDomainLanguage(): string | null {
-        const parsedData: ParsedDomain | ParseError = parse(window.location.host);
+        const parsedData: ParsedDomain | ParseError = parse(this.host);
         return (parsedData as ParsedDomain)?.subdomain || null;
     }
 }
