@@ -11,13 +11,13 @@ import { ELoadingState } from 'src/enums';
   styleUrls: ['./loading.component.scss']
 })
 export class LoadingComponent implements OnInit, OnDestroy {
-    /** */
+    /** Animation visible timeout */
     public activeTimeout: NodeJS.Timeout | null = null;
-    /** */
+    /** Visible state */
     public active$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-    /** */
+    /** Component destroy event emitter */
     public destroy$: Subject<void> = new Subject<void>();
-    /** */
+    /** Flag to mark as pending close */
     public shouldClose: boolean = false;
 
     constructor(
@@ -25,14 +25,19 @@ export class LoadingComponent implements OnInit, OnDestroy {
     ) { }
 
     /**
+     * ngOnInit
      *
+     * Part of Angular lifecycle, executed after first onChanges
     */
     public ngOnInit(): void {
+        this.restartTimeout();
         this.handleStateChanges();
     }
 
     /**
+     * handleStateChanges
      *
+     * Subscribes to loading service state changes and handles it
     */
     public handleStateChanges(): void {
         this.loadingService.state$
@@ -48,12 +53,22 @@ export class LoadingComponent implements OnInit, OnDestroy {
     }
 
     /**
+     * openLoading
      *
+     * Set loading as visible and restart visible timeout
     */
     public openLoading(): void {
         this.active$.next(true);
         this.shouldClose = false;
+        this.restartTimeout();
+    }
 
+    /**
+     * restartTimeout
+     *
+     * Re-start the visible animation timeout
+     */
+    public restartTimeout(): void {
         this.activeTimeout = setTimeout(() => {
             if (this.shouldClose) {
                 this.active$.next(false);
@@ -63,10 +78,12 @@ export class LoadingComponent implements OnInit, OnDestroy {
     }
 
     /**
+     * closeLoading
      *
+     * Validate if animation timeout is defined (active), if so, mark component should close prop as `true`, otherwise, set loading as hidden
     */
     public closeLoading(): void {
-        if (this.activeTimeout) {
+        if (this.activeTimeout !== null) {
             this.shouldClose = true;
         }
         else {
@@ -75,7 +92,9 @@ export class LoadingComponent implements OnInit, OnDestroy {
     }
 
     /**
+     * ngOnDestroy
      *
+     * Part of Angular lifecycle, executed before component is destroyed
     */
     public ngOnDestroy(): void {
         this.destroy$.next();
