@@ -51,7 +51,10 @@
     .skill-item {
         &__rate {
             &__tag {
-                color: var(--dark-white);
+                color: var(--light-orange);
+                border: 1px solid;
+                background-color: var(--dark-black);
+                line-height: 14px;
             }
         }
     }
