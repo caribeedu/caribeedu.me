@@ -69,14 +69,14 @@
             <button
                 [title]="translateService.activeTranslation?.labels?.skillsHelpTitle"
                 class="skills__help"
-                [ngClass]="{'skills__help--active': skillsHelpActive}"
-                (click)="changeHelpState()">
+                [ngClass]="{'skills__help--active': skillsHelpOpen}"
+                (click)="toggleHelpState()">
                 ?
             </button>
             <div
                 class="skills__help-text"
                 [innerHTML]="translateService.activeTranslation?.labels?.skillsHelpMessage"
-                [ngClass]="{'skills__help-text--active': skillsHelpActive}">
+                [ngClass]="{'skills__help-text--active': skillsHelpOpen}">
             </div>
             <skill-category *ngFor="let skill of translateService.activeTranslation?.content?.skills" [skill]="skill"></skill-category>
         </section>

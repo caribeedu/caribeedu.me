@@ -9,8 +9,8 @@ import { LoadingService, TranslateService, AnalyticsService } from 'src/services
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-    /**  */
-    public skillsHelpActive: boolean = false;
+    /** Flag to mark as skills help open */
+    public skillsHelpOpen: boolean = false;
 
     constructor(
         public translateService: TranslateService,
@@ -19,14 +19,18 @@ export class AppComponent implements OnInit, AfterViewInit {
     ) { }
 
     /**
+     * ngOnInit
      *
-     */
+     * Part of Angular lifecycle, executed after first onChanges
+    */
     public ngOnInit(): void {
         this.analyticsService.registerRouterEvents();
     }
 
     /**
+     * ngAfterViewInit
      *
+     * Part of Angular lifecycle, executed after first afterContentChecked
      */
     public async ngAfterViewInit(): Promise<void> {
         await this.translateService.setDefaultTranslation();
@@ -34,9 +38,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     /**
+     * toggleHelpState
      *
+     * Toggles the skills help open flag value
      */
-    public changeHelpState(): void {
-        this.skillsHelpActive = !this.skillsHelpActive;
+     public toggleHelpState(): void {
+        this.skillsHelpOpen = !this.skillsHelpOpen;
     }
 }
