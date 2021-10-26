@@ -60,6 +60,12 @@
     }
 }
 
+@media screen and (max-width: 1180px) and (min-width: 1025px) {
+    .skill-item {
+        display: block;
+    }
+}
+
 @media screen and (max-width: 364px) {
     .skill-item {
         display: block;
