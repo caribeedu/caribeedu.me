@@ -1,14 +1,11 @@
-:host {
+main {
+    padding: 0 36px 36px;
     height: 100vh;
     display: flex;
     max-height: 100vh;
     overflow-y: auto;
     flex-direction: column;
     overflow-y: scroll;
-}
-
-main {
-    margin: 0 36px 36px;
 }
 
 .header {
@@ -284,7 +281,7 @@ main {
 
 @media screen and (max-width: 1024px) {
     main {
-        margin: 0 24px 24px;
+        padding: 0 24px 24px;
     }
 
     .header {
