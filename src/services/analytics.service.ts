@@ -27,7 +27,7 @@ export class AnalyticsService {
                     'event',
                     'page_view',
                     {
-                        page_path: (event as NavigationEnd).urlAfterRedirects
+                        page_path: (event as NavigationEnd).urlAfterRedirects || '/'
                     }
                 )
             );

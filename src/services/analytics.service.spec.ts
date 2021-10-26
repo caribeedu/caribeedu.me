@@ -4,6 +4,10 @@ import { of } from 'rxjs';
 
 import { AnalyticsService } from './analytics.service';
 
+(window as any).gtag = (param1: string, param2: string, param3: Object) => {
+    console.log('GTAG', { param1, param2, param3 });
+}
+
 describe('AnalyticsService', () => {
     let service: AnalyticsService;
 
@@ -13,6 +17,7 @@ describe('AnalyticsService', () => {
                 RouterTestingModule.withRoutes([])
             ]
         });
+
         service = TestBed.inject(AnalyticsService);
     });
 
@@ -21,6 +26,7 @@ describe('AnalyticsService', () => {
     });
 
     describe('#registerRouterEvents', () => {
+
         it('should pipe router events with NavigationEnd filter', () => {
             const pipeSpy: jasmine.Spy = spyOn(service.router.events, 'pipe').and.returnValue(of(jasmine.any(Event)));
 
