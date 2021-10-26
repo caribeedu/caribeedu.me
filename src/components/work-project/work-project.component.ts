@@ -7,12 +7,16 @@ import { IWorkProject } from 'src/interfaces';
   styleUrls: ['./work-project.component.scss']
 })
 export class WorkProjectComponent {
-    /**  */
-    @Input() public project: IWorkProject | undefined;
-    /**  */
+    /** Project item data */
+    @Input() public project: IWorkProject | undefined = undefined;
+    /** Flag to mark as details open */
     public open: boolean = false;
 
-    /**  */
+    /**
+     * toggleState
+     *
+     * Toggles the open flag value
+     */
     public toggleState(): void {
         this.open = !this.open;
     }

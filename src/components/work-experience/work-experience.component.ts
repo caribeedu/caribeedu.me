@@ -9,8 +9,8 @@ import { TranslateService } from 'src/services';
   styleUrls: ['./work-experience.component.scss']
 })
 export class WorkExperienceComponent {
-    /**  */
-    @Input() public experience: IWorkExperience | undefined;
+    /** Experience item data */
+    @Input() public experience: IWorkExperience | undefined = undefined;
 
     constructor(
         public translateService: TranslateService
