@@ -14,9 +14,9 @@
 
     .loading {
         // Duration of animation part
-        --duration-part-animation: .3s;
+        --duration-part-animation: .15s;
         // Interval between animation parts
-        --interval-part-animation: .3s;
+        --interval-part-animation: .15s;
 
         background: transparent;
         width: 112px;
@@ -101,7 +101,7 @@
                 &--4 {
                     &::after {
                         animation-delay: calc(var(--interval-part-animation) * 3);
-                        background: linear-gradient(116deg, var(--medium-orange) 0%, var(--light-orange) 85%);
+                        background: linear-gradient(236deg, var(--medium-orange) 0%, var(--light-orange) 85%);
                     }
                 }
             }
@@ -109,7 +109,7 @@
     }
 
     &--inactive {
-        animation: disappear .4s;
+        animation: disappear .3s;
         animation-fill-mode: forwards;
     }
 }
