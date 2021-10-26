@@ -74,7 +74,7 @@ export class LoadingComponent implements OnInit, OnDestroy {
                 this.active$.next(false);
             }
             this.activeTimeout = null;
-        }, 3200);
+        }, 2000);
     }
 
     /**

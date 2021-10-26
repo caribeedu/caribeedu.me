@@ -14,9 +14,9 @@
 
     .loading {
         // Duration of animation part
-        --duration-part-animation: .4s;
-        // Interval of animation part
-        --interval-part-animation: .4s;
+        --duration-part-animation: .3s;
+        // Interval between animation parts
+        --interval-part-animation: .3s;
 
         background: transparent;
         width: 112px;
@@ -80,28 +80,28 @@
 
                 &--1 {
                     &::after {
-                        background: linear-gradient(322deg, var(--light-orange) 0%, var(--medium-orange) 85%);
+                        background: linear-gradient(180deg, var(--medium-orange) 0%, var(--light-orange) 45%, var(--dark-orange) 90%);
                     }
                 }
 
                 &--2 {
                     &::after {
                         animation-delay: var(--interval-part-animation);
-                        background: var(--light-orange);
+                        background: linear-gradient(322deg, var(--light-orange) 0%, var(--dark-orange) 90%);
                     }
                 }
 
                 &--3 {
                     &::after {
                         animation-delay: calc(var(--interval-part-animation) * 2);
-                        background: linear-gradient(210deg, var(--light-orange) 0%, var(--medium-orange) 85%);
+                        background: linear-gradient(36deg, var(--medium-orange) 0%, var(--light-orange) 85%);
                     }
                 }
 
                 &--4 {
                     &::after {
                         animation-delay: calc(var(--interval-part-animation) * 3);
-                        background: var(--medium-orange);
+                        background: linear-gradient(116deg, var(--medium-orange) 0%, var(--light-orange) 85%);
                     }
                 }
             }
@@ -109,7 +109,7 @@
     }
 
     &--inactive {
-        animation: disappear .5s;
+        animation: disappear .4s;
         animation-fill-mode: forwards;
     }
 }
