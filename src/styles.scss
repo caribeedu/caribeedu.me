@@ -44,8 +44,7 @@ html, body {
 
 body {
     margin: 0;
-    overflow-y: hidden;
-    background-color: #ffffff;
+    background-color: var(--medium-white);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,6 +53,6 @@ body {
     }
 
     body {
-        background-color: #121212;
+        background-color: var(--dark-black);
     }
 }
