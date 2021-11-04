@@ -11,6 +11,8 @@
     contain: content;
     background-color: var(--medium-white);
     z-index: 1;
+    pointer-events: none;
+    opacity: 1;
 
     .loading {
         // Duration of animation part
@@ -109,19 +111,13 @@
     }
 
     &--inactive {
-        animation: disappear .3s;
-        animation-fill-mode: forwards;
-    }
-}
-
-@keyframes disappear {
-    from {
-        opacity: 1;
-    }
-
-    to {
+        transition-property: opacity, height, width, visibility;
+        transition-delay: 0s, .6s, .6s, .6s;
+        transition-duration: .3s, 0s, 0s, 0s;
         opacity: 0;
-        pointer-events: none;
+        height: 0;
+        width: 0;
+        visibility: hidden;
     }
 }
 
