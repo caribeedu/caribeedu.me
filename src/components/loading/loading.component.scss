@@ -11,7 +11,7 @@
     background-color: var(--medium-white);
     z-index: 1;
     pointer-events: none;
-    display: none;
+    display: flex;
 
     .loading {
         // Duration of animation part
@@ -71,8 +71,6 @@
     }
 
     &--active {
-        display: flex;
-
         .loading {
             &__part {
                 &::after {

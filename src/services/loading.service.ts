@@ -7,8 +7,16 @@ import { ELoadingState } from 'src/enums';
   providedIn: 'root'
 })
 export class LoadingService {
-    /** Loading visible state subject */
-    public readonly state$: BehaviorSubject<ELoadingState> = new BehaviorSubject<ELoadingState>(ELoadingState.OPEN);
+    /** Animation visible timeout */
+    public activeTimeout: NodeJS.Timeout | null = null;
+    /** Visible state */
+    public readonly active$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+    /** Flag to mark as pending close */
+    public shouldClose: boolean = false;
+
+    constructor() {
+        this.restartTimeout();
+    }
 
     /**
      * changeState
@@ -18,6 +26,50 @@ export class LoadingService {
      * @param state - New state for loading
      */
     public changeState(state: ELoadingState): void {
-        this.state$.next(state);
+        if (state === ELoadingState.OPEN) {
+            this.openLoading();
+        }
+        else if (state === ELoadingState.CLOSED) {
+            this.closeLoading();
+        }
+    }
+
+    /**
+     * openLoading
+     *
+     * Set loading as visible and restart visible timeout
+    */
+    public openLoading(): void {
+        this.active$.next(true);
+        this.shouldClose = false;
+        this.restartTimeout();
+    }
+
+    /**
+     * restartTimeout
+     *
+     * Re-start the visible animation timeout
+     */
+    public restartTimeout(): void {
+        this.activeTimeout = setTimeout(() => {
+            if (this.shouldClose) {
+                this.active$.next(false);
+            }
+            this.activeTimeout = null;
+        }, 1000);
+    }
+
+    /**
+     * closeLoading
+     *
+     * Validate if animation timeout is defined (active), if so, mark component should close prop as `true`, otherwise, set loading as hidden
+    */
+    public closeLoading(): void {
+        if (this.activeTimeout !== null) {
+            this.shouldClose = true;
+        }
+        else {
+            this.active$.next(false);
+        }
     }
 }

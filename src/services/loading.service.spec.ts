@@ -15,23 +15,80 @@ describe('LoadingService', () => {
 
     it('should be created', () => {
         expect(service).toBeTruthy();
-        expect(service.state$).toEqual(new BehaviorSubject<ELoadingState>(ELoadingState.OPEN));
+        expect(service.active$).toEqual(new BehaviorSubject<boolean>(true));
     });
 
     describe('#changeState', () => {
-        let nextSpy: jasmine.Spy;
+        it('should call #openLoading if state emitted value is ELoadingState.OPEN', () => {
+            const openLoadingSpy: jasmine.Spy = spyOn(service, 'openLoading');
 
-        beforeEach(() => {
-            nextSpy = spyOn(service.state$, 'next').and.callThrough();
+            service.changeState(ELoadingState.OPEN);
+
+            expect(openLoadingSpy).toHaveBeenCalled();
         });
 
-        it('should call state$ #next with given state', () => {
-            const double: ELoadingState = ELoadingState.CLOSED;
+        it('should call #closeLoading if state emitted value is ELoadingState.CLOSED', () => {
+            const closeLoadingSpy: jasmine.Spy = spyOn(service, 'closeLoading');
 
-            service.changeState(double);
+            service.changeState(ELoadingState.CLOSED);
 
-            expect(service.state$.value).toEqual(ELoadingState.CLOSED);
-            expect(nextSpy).toHaveBeenCalledOnceWith(ELoadingState.CLOSED);
+            expect(closeLoadingSpy).toHaveBeenCalled();
+        });
+    });
+
+    describe('#openLoading', () => {
+        it('should call active$ #next', () => {
+            const nextSpy: jasmine.Spy = spyOn(service.active$, 'next');
+
+            service.openLoading();
+
+            expect(nextSpy).toHaveBeenCalledOnceWith(true);
+        });
+
+        it('should set shouldClose to false', () => {
+            service.shouldClose = true;
+
+            service.openLoading();
+
+            expect(service.shouldClose).toEqual(false);
+        });
+
+        it('should call #restartTimeout', () => {
+            const restartSpy: jasmine.Spy = spyOn(service, 'restartTimeout');
+
+            service.openLoading();
+
+            expect(restartSpy).toHaveBeenCalled();
+        });
+    });
+
+    describe('#restartTimeout', () => {
+        it('should set activeTimeout as active timeout', () => {
+            service.activeTimeout = null;
+
+            service.restartTimeout();
+
+            expect(service.activeTimeout).toBeInstanceOf(Number);
+        });
+    });
+
+    describe('#closeLoading', () => {
+        it('should set shouldClose to true if activeTimeout is defined', () => {
+            service.shouldClose = false;
+            service.activeTimeout = setTimeout(() => {}, 10000);
+
+            service.closeLoading();
+
+            expect(service.shouldClose).toEqual(true);
+        });
+
+        it('should call active$ #next if activeTimeout isn\'t defined', () => {
+            const nextSpy: jasmine.Spy = spyOn(service.active$, 'next');
+            service.activeTimeout = null;
+
+            service.closeLoading();
+
+            expect(nextSpy).toHaveBeenCalledOnceWith(false);
         });
     });
 });

@@ -1,5 +1,5 @@
-<loading></loading>
-<main>
+<loading [ngStyle]="{'display': loadingService.active$.value ? 'block' : 'none'}"></loading>
+<main [ngStyle]="{'display': loadingService.active$.value ? 'none' : 'block'}">
     <language-selector></language-selector>
     <section class="header">
         <div class="header__info">
