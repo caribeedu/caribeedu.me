@@ -1,10 +1,10 @@
 <div class="work-experience">
     <div class="work-experience__header">
-        <h4>{{ experience?.company }}</h4>
+        <h4>{{ experience?.field }}</h4>
         <span>{{ experience?.time }}</span>
     </div>
-    <label class="work-experience__field">
-        {{ experience?.field }}
+    <label class="work-experience__subtitle">
+        {{ experience?.company }}
     </label>
     <span class="work-experience__section">
         {{ translateService.activeTranslation?.labels?.workDescription }}
